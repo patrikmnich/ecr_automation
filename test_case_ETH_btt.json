@@ -1,0 +1,122 @@
+{
+    "meta":{
+        "case_name": "MasterCard"
+    },
+    "network": {
+        "ip": "10.64.1.186",
+        "port": 53535,
+        "interface": "ETH",
+        "btt_ip":"10.64.1.244",
+        "btt_port":5000
+    },
+    "Cases": [
+        {
+            "test_name": "Totals",
+            "transaction_type": "TOTALS",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_result": "00",
+            "expected_ecr_result": "0"
+        },
+        {
+            "test_name": "MC below limit",
+            "transaction_type": "SALE",
+            "ecr_amount": "5000",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0",
+            "expected_result": "001",
+            "btt_card_profile": "C:\\UL Test Tools\\BTT 5.4.1\\Application\\Suites\\Images\\MasterCard\\Contactless\\Subset 8M\\PPC MCD 10 V2.2.xml"
+        },
+        {
+            "test_name": "MC below CVM",
+            "transaction_type": "SALE",
+            "ecr_amount": "100",
+            "ecr_identifier": "1",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0",
+            "expected_result": "001",
+            "btt_card_profile": "C:\\UL Test Tools\\BTT 5.4.1\\Application\\Suites\\Images\\MasterCard\\Contactless\\Subset 8M\\Combo 01 V1.1.xml"
+        },
+        {
+            "test_name": "MC below CVM",
+            "transaction_type": "SALE",
+            "ecr_amount": "200",
+            "ecr_identifier": "2",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0",
+            "expected_result": "001",
+            "btt_card_profile": "C:\\UL Test Tools\\BTT 5.4.1\\Application\\Suites\\Images\\MasterCard\\Contactless\\Subset 8M\\MP 01 V2.2.xml"
+        },
+        {
+            "test_name": "MC below CVM",
+            "transaction_type": "SALE",
+            "ecr_amount": "300",
+            "ecr_identifier": "3",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0",
+            "expected_result": "001",
+            "btt_card_profile": "C:\\UL Test Tools\\BTT 5.4.1\\Application\\Suites\\Images\\MasterCard\\Contactless\\Subset 8M\\MP 50 V1.1.xml"
+        },
+        {
+            "test_name": "MC below CVM",
+            "transaction_type": "SALE",
+            "ecr_amount": "400",
+            "ecr_identifier": "4",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0",
+            "expected_result": "001",
+            "btt_card_profile": "C:\\UL Test Tools\\BTT 5.4.1\\Application\\Suites\\Images\\MasterCard\\Contactless\\Subset 8M\\PPC MCD 01 V2.2.xml"
+        },
+        {
+            "test_name": "MC below CVM",
+            "transaction_type": "SALE",
+            "ecr_amount": "500",
+            "ecr_identifier": "5",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0",
+            "expected_result": "001",
+            "btt_card_profile": "C:\\UL Test Tools\\BTT 5.4.1\\Application\\Suites\\Images\\MasterCard\\Contactless\\Subset 8M\\PPC MCD 04 V2.2.xml"
+        },
+        {
+            "test_name": "MC Void sale",
+            "transaction_type": "VOID",
+            "ecr_amount": "500",
+            "ecr_identifier": "5",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0"
+        },
+        {
+            "test_name": "MC negative amount",
+            "transaction_type": "SALE",
+            "ecr_amount": "-1",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "9"
+        },
+        {
+            "test_name": "MC refund",
+            "transaction_type": "RETURN",
+            "ecr_amount": "600",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0",
+            "expected_result": "000",
+            "btt_card_profile": "C:\\UL Test Tools\\BTT 5.4.1\\Application\\Suites\\Images\\MasterCard\\Contactless\\Subset 8M\\PPC MCD 04 V2.2.xml"
+        },
+        {
+            "test_name": "MC totals",
+            "transaction_type": "SUBTOTALS",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0",
+            "expected_totals": "00050000054000001000000600"
+        }
+    ]
+}

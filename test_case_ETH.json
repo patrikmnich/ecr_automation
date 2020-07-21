@@ -1,0 +1,78 @@
+{
+    "meta":{
+        "case_name": "VISA"
+    },
+    "network": {
+        "ip": "10.64.1.186",
+        "port": 53535,
+        "interface": "ETH",
+        "btt_ip":"10.64.1.244",
+        "btt_port":5000
+    },
+    "Cases": [
+        {
+            "test_name": "Totals",
+            "transaction_type": "TOTALS",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_result": "00",
+            "expected_ecr_result": "0"
+        },
+        {
+            "test_name": "VISA above CVM",
+            "transaction_type": "SALE",
+            "ecr_amount": "5001",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0",
+            "expected_result": "001",
+            "expected_cvm": "Y",
+            "btt_card_profile": "C:\\UL Test Tools\\BTT 5.4.1\\Application\\Suites\\Images\\MasterCard\\Contactless\\M-TIP Subset\\MCD19 - v1.0.xml"
+        },
+        {
+            "test_name": "VISA below CVM",
+            "transaction_type": "SALE",
+            "ecr_amount": "1",
+            "ecr_identifier": "1",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0",
+            "expected_result": "001",
+            "btt_card_profile": "C:\\UL Test Tools\\BTT 5.4.1\\Application\\Suites\\Images\\MasterCard\\Contactless\\M-TIP Subset\\MCD19 - v1.0.xml"
+        },
+        {
+            "test_name": "VISA Void sale",
+            "transaction_type": "VOID",
+            "ecr_amount": "1",
+            "ecr_identifier": "1",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0"
+        },
+        {
+            "test_name": "VISA negative amount",
+            "transaction_type": "SALE",
+            "ecr_amount": "-1",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "9"
+        },
+        {
+            "test_name": "VISA refund",
+            "transaction_type": "RETURN",
+            "ecr_amount": "100",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0",
+            "expected_result": "000"
+        },
+        {
+            "test_name": "VISA totals",
+            "transaction_type": "SUBTOTALS",
+            "protocol": "PRSK03",
+            "host": "CSOB",
+            "expected_ecr_result": "0",
+            "expected_totals": "00020000049020001000000100"
+        }
+    ]
+}
